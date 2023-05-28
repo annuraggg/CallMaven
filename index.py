@@ -45,8 +45,7 @@ print(auth_token)
 
 @app.route('/', methods=['GET'])
 def get_home():
-    return redirect('/login')
-
+    return redirect('/employee')
 
 
 @app.route('/token', methods=['GET'])
