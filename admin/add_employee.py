@@ -39,6 +39,6 @@ def index():
             adduser = Users.insert_one(userobj)
             if adduser:
                 redirect('/admin/add/emp?add=true')
-        return render_template('admin/add_employee.html ')
+        return render_template('admin/add_employee.html')
     except jwt.InvalidTokenError:
         return redirect('admin/?redirect=true')
