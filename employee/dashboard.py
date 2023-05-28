@@ -42,8 +42,10 @@ def dashboard_agent():
         tickets_cursor1 = Tickets.find(
             {'assigned_to': user_id, 'status': 'unresolved'})
         ticun = 0
+        date_format = "%d-%m-%Y"
         for x in tickets_cursor1:
-            x['created_at'] = x['created_at'].date()
+            x['created_at'] = datetime.datetime.strptime(
+                x['created_at'], date_format).date()
             if (x['created_at'] == today):
                 ticun += 1
 
