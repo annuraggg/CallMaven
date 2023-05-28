@@ -1,6 +1,6 @@
 import json
 import os
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, redirect, request
 from apis.database_api import Users, Tickets, Calls
 
 from twilio.jwt.access_token import AccessToken
@@ -45,7 +45,7 @@ print(auth_token)
 
 @app.route('/', methods=['GET'])
 def get_home():
-    return ("Hello World")
+    return redirect('/login')
 
 
 
