@@ -1,0 +1,94 @@
+{% from 'admin/navbar_macro.html' import navbar %} {% set empid = data['empid'] %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/cust_info.css') }}"
+    />
+
+    <title>Dashboard</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main">
+      <div class="box">
+        <h1>{{data['name']}}</h1>
+
+        <div class="contact">
+          <p>Email: {{data['email']}}</p>
+          <p>Phone: {{data['phone']}}</p>
+        </div>
+
+        <div class="bar">
+          <div class="message calllogs" style="overflow: hidden">
+            <h3>Tickets History</h3>
+
+            <div class="call" style="overflow: hidden">
+              <h3>Tickets</h3>
+              {% for i in tickets %}
+              <p>{{i}}</p>
+              {% endfor %}
+            </div>
+
+            <div class="butts">
+              <div
+                class="callup"
+                onclick="window.location.href='/admin/tickets/{{empid}}'"
+              >
+                See All
+              </div>
+            </div>
+          </div>
+
+          <div class="calllogs">
+            <h3>Call History</h3>
+
+            <div class="call">
+              {%for x in calls%}
+              <p>{{x.direction}} Call From {{x.to}}</p>
+              {%endfor%}
+            </div>
+
+            <div class="butts">
+              <div
+                class="callup"
+                onclick="window.location.href
+                ='/admin/logs/{{empid}}'"
+              >
+                See All
+              </div>
+            </div>
+          </div>
+
+          <div class="prev">
+            <h3>Additional Info</h3>
+            <p>Account Was Created At: {{data['created']}}</p>
+            <p>Rating: {{data['rating']}}</p>
+            <a href="/admin/emp/reviews/{{data['empid']}}"
+              >Click to fetch Reviews</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function getAge(dateString) {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
+  </script>
+</html>

@@ -1,0 +1,61 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/customers.css') }}"
+    />
+    <title>Customers</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main">
+      <h1>Employees at Your Office</h1>
+
+      <div class="recent">
+        <table class="GeneratedTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for i in customers%}
+
+            <tr>
+              <td>{{i['name']}}</td>
+              <td>{{i['phone']}}</td>
+              <td>{{i['email']}}</td>
+              {% set name = i['id'] %}
+              <td
+                class="view"
+                onclick="window.location.href='/admin/employee/{{name}}'"
+              >
+                View Employee
+              </td>
+
+              <td
+                class="view"
+                onclick="window.location.href='/admin/delete/employee/{{name}}'"
+              >
+                Delete Employee
+              </td>
+              {%endfor%}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

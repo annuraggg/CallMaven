@@ -1,0 +1,195 @@
+@import url("../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf");
+@import url("../fonts/Barlow/Barlow-Regular.ttf");
+@import url("../fonts/Heebo/Heebo-VariableFont_wght.ttf");
+
+/* Colors */
+:root {
+  --bg-color: #111111;
+  --text-color: aliceblue;
+  --primary-color: #1781df;
+  --secondary-color: #2a2b32;
+  --accent-color: rgb(195, 9, 77);
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.main {
+  padding: 50px;
+  margin-left: 100px;
+}
+
+.info_main {
+  display: flex;
+}
+
+.info_main h1 {
+  color: var(--primary-color);
+}
+
+.linkAbout {
+  text-decoration: auto;
+  margin: 0 5px;
+  color: black;
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  background: var(--secondary-color);
+  padding: 10px;
+  border-radius: 0 0 15px 15px;
+  font-size: 1em;
+  font-family: "Heebo", sans-serif;
+  right: 31px;
+}
+
+.linkAbout:hover {
+  color: var(--accent-color);
+}
+
+.more_info {
+  width: 70%;
+  color: var(--text-color);
+  margin-top: 30px;
+  padding: 20px 0;
+  background: var(--secondary-color);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.row1 {
+  justify-content: space-between;
+  width: 200px;
+  display: flex;
+}
+
+.col1,
+.col3 {
+  margin: 0 80px;
+}
+
+.second_main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calls {
+  width: 25%;
+  color: var(--text-color);
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--secondary-color);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calls p,
+h4 {
+  margin: 4px;
+}
+
+.col1 h1 {
+  color: var(--primary-color);
+}
+
+.horizontal_info p {
+  color: var(--text-color);
+}
+
+.col3 h1 {
+  color: var(--primary-color);
+}
+
+.log {
+  margin-bottom: 20px;
+}
+
+.calls h1 {
+  color: var(--primary-color);
+}
+
+.message,
+.calllogs,
+.prev {
+  background-color: var(--secondary-color);
+  width: 30%;
+  padding: 25px;
+  border-radius: 20px;
+  height: 300px;
+  margin-top: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow-y: auto;
+}
+
+.calllogs {
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+}
+
+.call {
+  margin-bottom: 20px;
+  height: 160px;
+  overflow-y: auto;
+}
+
+.butts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.callup {
+  cursor: pointer;
+  height: 25px;
+  width: 150px;
+  margin: 15px 20px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 0.2s;
+}
+
+.callup1 {
+  cursor: pointer;
+  margin-top: 15px;
+  background-color: var(--primary-color);
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 0.2s;
+}
+
+.callup:hover {
+  transform: scale(1.04);
+}
+
+.callogs,
+.message {
+  overflow: auto;
+}
+
+.main {
+  filter: blur(0);
+  transition: .5s;
+}
+
+.main-blurred {
+  filter: blur(40px);
+  transition: .5s
+}

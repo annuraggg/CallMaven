@@ -1,0 +1,71 @@
+{% from 'employee/navbar_macro.html' import navbar with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/addcall.css') }}"
+    />
+    <title>Add Call</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main">
+      <h1>Add Call</h1>
+
+      <form action="" method="post">
+        <div class="form_child">
+          <div class="form">
+            <div class="first">
+              <select id="type" name="type" class="input">
+                <option value="incoming">Incoming</option>
+                <option value="outgoing">Outgoing</option>
+              </select>
+
+              <input
+                type="text"
+                placeholder="Duration(MM:SS)"
+                name="duration"
+                id="duration"
+                class="input"
+              />
+            </div>
+
+            <div class="two">
+              <input
+                type="date"
+                placeholder="Date"
+                name="date"
+                id="date"
+                class="input"
+              />
+              <input
+                type="text"
+                placeholder="Time(HH:MM (24 Hour Format))"
+                name="time"
+                id="time"
+                class="input"
+              />
+            </div>
+
+            <textarea
+              name="desc"
+              id="desc"
+              cols="61"
+              rows="10"
+              class="input"
+              placeholder="Call Description"
+            ></textarea>
+
+            <button>Submit Record</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/addcall.css') }}"
+    />
+    <title>Add Employee</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main">
+      <h1>Add Employee</h1>
+
+      <form action="" method="post">
+        <div class="form_child">
+          <div class="form">
+            <div class="first">
+              <!---- <select id="type" name="type" class="input">
+                <option value="incoming">Incoming</option>
+                <option value="outgoing">Outgoing</option>
+              </select>-->
+
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                id="fname"
+                class="input"
+              />
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                id="fname"
+                class="input"
+              />
+
+              <input
+                type="text"
+                placeholder="Email"
+                name="email"
+                id="fname"
+                class="input"
+              />
+
+              <input
+                type="text"
+                placeholder="Phone No."
+                name="phone"
+                id="phone"
+                class="input"
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                name="pw"
+                id="pw"
+                class="input"
+              />
+              
+            </div>
+
+            <button>Submit Record</button>
+
+            <p style="color: green" id="msg"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
+  msg = document.getElementById("msg");
+
+  let raised = params.add;
+
+  if (raised) {
+    msg.innerHTML = "Employee Added Successfully!";
+    alert("Employee Added Successfully!");
+  }
+</script>

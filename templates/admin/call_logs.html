@@ -1,0 +1,50 @@
+{% from 'admin/navbar_macro.html' import navbar with context %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/customers.css') }}" />
+    <title>Call Logs</title>
+</head>
+
+<body>
+    {{navbar()}}
+
+    <div class="main">
+        <h1>Call Logs</h1>
+
+        <div class="recent">
+            <table class="GeneratedTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Type</th>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in logs%}
+
+                    <tr>
+                        <td>{{i['name']}}</td>
+                        <td> {{i['phone']}}</td>
+                        <td>{{i['type']}}</td>
+                        <td>{{i['time']}}</td>
+                        <td>{{i['duration']}}</td>
+                        <td class="view" onclick=window.location.href="/admin/customer/{{i['id']}}">View Customer</td>
+                        {%endfor%}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

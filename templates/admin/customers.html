@@ -1,0 +1,60 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/customers.css') }}"
+    />
+    <title>Customers</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main">
+      <h1>Customers</h1>
+
+      <div class="recent">
+        <table class="GeneratedTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for i in customers%}
+
+            <tr>
+              <td>{{i['name']}}</td>
+              <td>{{i['phone']}}</td>
+              <td>{{i['email']}}</td>
+              {% set name = i['id'] %}
+              <td class="view" onclick="window.location.href='/admin/customer/{{name}}'">
+                View Customer
+              </td>
+              <td class="view" onclick="window.location.href='/admin/delete/customer/{{name}}'">
+                Delete Customer
+              </td>
+              {%endfor%}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const select = (activetickets) => {
+    window.location.href = a;
+  };
+</script>

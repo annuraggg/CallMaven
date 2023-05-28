@@ -1,0 +1,81 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/customers.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/tickets.css') }}"
+    />
+    <title>Tickets</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main" id="main">
+      <h1>Active Tickets Assigned to You</h1>
+
+      <div class="recent">
+        <table class="GeneratedTable">
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Customer ID</th>
+              <th>Subject</th>
+              <th>Created On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for i in cust%}
+
+            <tr>
+              <td class="view" onclick="showTicket({{i['ticket_id']}})">
+                {{i['ticket_id']}}
+              </td>
+              <td
+                class="view"
+                onclick="window.location.href='/admin/customer/{{i['customer_id']}}'">
+                {{i['customer_id']}}
+              </td>
+              <td>{{i['subject']}}</td>
+              <td>{{i['created_at']}}</td>
+              {%endfor%}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ticket_expanded" id="ticket_expanded">
+      <i
+        class="fa-solid fa-xmark"
+        style="color: #ffffff"
+        id="cross"
+        onclick="closeTicket()"
+      ></i>
+      <h1 id="ticketID"></h1>
+      <h3 id="name"></h3>
+      <h3 id="subject"></h3>
+      <h4 id="message"></h4>
+      <p id="date">Received:</p>
+
+      <div class="buttons">
+        <button id="resolve">Mark as Resolved</button>
+        <button id="profile" onclick="">View Profile</button>
+      </div>
+    </div>
+  </body>
+
+  <script src="{{ url_for('static',filename='js/admin_tickets.js') }}"></script>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static',filename='libraries/fontawesome/css/all.css') }}"
+  />
+</html>

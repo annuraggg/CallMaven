@@ -1,0 +1,120 @@
+{% from 'employee/navbar_macro.html' import navbar with context %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- * STYLE SHEETS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/dashboard.css') }}"
+    />
+    <link
+      href="{{ url_for('static',filename='libraries/fontawesome/css/fontawesome.css') }}"
+      rel="stylesheet"
+    />
+
+    <title>Dashboard</title>
+  </head>
+
+  <body>
+    {% from 'loader_macro.html' import loader %} {{navbar()}}
+
+    <div class="main">
+      <div class="main_side">
+        <div class="rating">
+          Your Rating (/5.0)
+          <div class="merge">
+            <img
+              src="{{ url_for('static',filename='img/rating.png') }}"
+              alt=""
+              class="image"
+            />
+            <p>{{data.rating}}</p>
+          </div>
+        </div>
+
+        <div class="rating">
+          Total Calls
+          <div class="merge">
+            <img
+              src="{{ url_for('static',filename='img/calls.png') }}"
+              alt=""
+              class="image"
+            />
+            <p>{{data.totalcalls}}</p>
+          </div>
+        </div>
+
+        <div class="rating">
+          Total Tickets Today
+          <div class="merge">
+            <img
+              src="{{ url_for('static',filename='img/ticket.png') }}"
+              alt=""
+              class="image"
+            />
+            <p>{{data.totaltickets}}</p>
+          </div>
+        </div>
+
+        <div class="rating">
+          Unresolved Tickets Today
+          <div class="merge">
+            <img
+              src="{{ url_for('static',filename='img/ticket1.png') }}"
+              alt=""
+              class="image"
+            />
+            <p>{{data.unresolved}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="recent">
+          <h1>Welcome, {{data.name}}</h1>
+          <table class="GeneratedTable">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Duration</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in calls %} {% if loop.index <= 5 %}
+              <tr>
+                <td>{{i.type}}</td>
+                <td>{{i.duration}}</td>
+                <td>{{i.time}}</td>
+              </tr>
+              {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <h1 id="stats">Today's Stats</h1>
+        <div class="stats">
+          <div class="one">
+            <canvas id="chart1"></canvas>
+          </div>
+
+          <div class="two">
+            <canvas id="chart2"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  eid = '{{data.id}}'
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static',filename='libraries/jquery/jquery-3.6.4.min.js')}} "></script>
+<script src="{{ url_for('static',filename='js/dashboard_stats.js') }}"></script>
+

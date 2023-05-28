@@ -1,0 +1,15 @@
+
+/__pycache__
+.ENV
+admin/__pycache__/
+apis/__pycache__/
+customer/__pycache__/
+trash/
+ngrok.exe
+employee/__pycache__/
+flask
+flask/Lib/
+/venv
+.vercel
+/db
+vercel.json

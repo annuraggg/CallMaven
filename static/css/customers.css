@@ -1,0 +1,58 @@
+:root {
+    --main-bg-color: #111111;
+    --text-color: aliceblue;
+    --primary-color: #4672fe;
+    --secondary-color: #2A2B32;
+}
+
+@import url('../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf');
+@import url('../fonts/Barlow/Barlow-Regular.ttf');
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}   
+
+.main {
+    padding: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+table.GeneratedTable {
+    text-align: center;
+    margin: 0 50px;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    height: 20px;
+    overflow: auto;
+}
+
+table.GeneratedTable td,
+table.GeneratedTable th {
+    border-width: 2px;
+    border-color: var(--main-bg-color);
+    border-style: solid;
+    padding: 3px;
+}
+
+td {
+    color: #fff
+}
+
+table.GeneratedTable thead {
+    background-color: var(--primary-color);
+}
+
+.view {
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}

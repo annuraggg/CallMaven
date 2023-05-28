@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/support.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='libraries/animatecss/animate.css') }}" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="left animate__animated animate__fadeInDown">
+            <h3>Support</h3>
+            <p>Please Drop Your Query Here, we will respond within 24 Hours</p>
+
+            <form method="POST">
+
+
+                <div class="form__group field">
+                    <input placeholder="Customer ID" class="form__field" type="number" name="custid" id="custid" />
+                    <label class=" form__label" for="custid">Customer ID</label>
+                </div>
+
+                <div class="form__group field">
+                    <input class="form__field" type="text" placeholder="Subject" name="subject" id="subject" />
+                    <label class="form__label" for="subject">Subject</label>
+                </div>
+
+                <div class="form__group field">
+                    <input class="form__field" type="text" placeholder="Message" name="message" id="message" />
+                    <label class="form__label" for="message">Message</label>
+                </div>
+
+                <br />
+                <input type="submit" value="SUBMIT" class="submit" id="submit" />
+
+                <p id="msg" style="color: green; text-align: center;"></p>
+            </form>
+        </div>
+        <div class="right animate__animated animate__zoomIn   ">
+
+        </div>
+    </div>
+
+</body>
+<script src="{{ url_for('static',filename='js/support.js') }}"></script>
+
+</html>

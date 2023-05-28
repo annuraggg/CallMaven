@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<main>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/rating.css') }}" />
+    <form method="post" id="form">
+
+        <h1>Rate Us</h1>
+        <p>How was your experience with The CallMaven Support Team? Your rating matters!</p>
+
+        <div class="rating">
+            <input type="radio" name="rating" id="rating-1" value="1">
+            <input type="radio" name="rating" id="rating-2" value="2">
+            <input type="radio" name="rating" id="rating-3" value="3">
+            <input type="radio" name="rating" id="rating-4" value="4">
+            <input type="radio" name="rating" id="rating-5" value="5">
+
+            <div class="rating__box">
+                <label for="rating-1" class="rating__star">&starf;</label>
+                <label for="rating-2" class="rating__star">&starf;</label>
+                <label for="rating-3" class="rating__star">&starf;</label>
+                <label for="rating-4" class="rating__star">&starf;</label>
+                <label for="rating-5" class="rating__star">&starf;</label>
+
+            </div>
+        </div>
+
+        <div class="textarea-group">
+            <label>
+                <span>Comments : </span>
+                <textarea id="comment-rating" placeholder="Additional feedback ..." name="feedback"></textarea>
+            </label>
+        </div>
+
+        <div class="action-group">
+            <input type="button" value="Submit" id="submit">
+            <input type="reset" value="Cancel">
+        </div>
+    </form>
+</main>
+<script src="{{ url_for('static',filename='libraries/jquery/jquery-3.6.4.min.js')}}"></script>
+
+<script>
+    const sub = document.getElementById('submit')
+
+    sub.addEventListener('click', (event) => {
+        event.preventDefault()
+        err = document.getElementById('form')
+
+        rating = document.getElementsByName('rating').value
+
+        var ele = document.getElementsByName('rating');
+
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked)
+                rating = ele[i].value;
+        }
+
+
+        console.log(rating)
+        feedback = document.getElementById('comment-rating').value
+
+        let href = window.location
+        let url = new URL(href);
+        cpath = url.pathname.substring(6)
+
+        $.post(`/rate/${cpath}`, {
+            rating: rating,
+            feedback: feedback
+        }).done((data) => {
+            if (data == "True") {
+                err.innerHTML = "Thank You For Your Feedback. You can now close this page!"
+            } else if (data == "False") {
+                err.innerHTML = "Invalid or Expired Token"
+            } else {
+                err.innerHTML = "Something Went Wrong"
+            }
+        })
+
+    })
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/admin.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='libraries/animatecss/animate.css') }}" />
+    <title>Login</title>
+</head>
+
+<body>
+
+    {% from 'loader_macro.html' import loader %}
+    {{loader()}}
+
+    <p class="animate__animated animate__backInDown">CallMaven</p>
+    <h1 class="animate__animated animate__backInDown">Login to Your Account</h1>
+
+    <form action="" method="POST">
+        <input class="input" placeholder="ID" required="" type="number" name="id" id="id">
+        <input class="input" placeholder="Password" required="" type="password" name="pw" id="pw">
+        <button id="submit" class="animate__animated animate__backInUp">Login</button>
+    </form>
+
+    </div>
+    </form>
+    </p>
+    <p style="color: red;" id="err">&nbsp;</p>
+</body>
+
+</html>
+
+<script src="{{ url_for('static',filename='libraries/jquery/jquery-3.6.4.min.js')}}"></script>
+<script src="{{ url_for('static',filename='js/admin.js') }}"></script>

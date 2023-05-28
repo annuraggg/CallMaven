@@ -1,0 +1,181 @@
+.TopBox {
+    width: 71px;
+    height: 5px;
+    margin: 0 auto;
+    background: #1781DF;
+    border-radius: 0 0 12px 12px;
+}
+
+.MenuBox>ul>li>span {
+    position: absolute;
+    left: 80%;
+    opacity: 0;
+    top: 12px;
+    margin-left:0;
+    color: aliceblue;
+    background: #2A2B32;
+    transition: 250ms ease all;
+    border-radius: 17.5px;
+    line-height: 0;
+    padding: 16px 3px;
+    z-index: -1;
+    width: 150px;
+}
+
+svg {
+    color: #1781DF;
+}
+
+.MenuBox>ul>li {
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 12px;
+    line-height: 68px;
+    color: aliceblue;
+
+}
+
+.MenuBox:not(:hover),
+.MenuBox>ul>li:hover svg {
+    color: aliceblue;
+
+}
+
+.MenuBox>ul>li:hover span {
+    display: block;
+    left: 100%;
+    color: aliceblue;
+    opacity: 1;
+    background-color: #141718;
+}
+
+.Active>svg {
+    color: aliceblue;
+}
+
+.feather {
+    color: aliceblue;
+    width: 25px;
+    transition: 1s;
+}
+
+.MenuBox {
+    color: aliceblue;
+    background: #2A2B32;
+    position: absolute;
+    margin: 34px 12px;
+    height: 90%;
+    border-radius: 9px;
+    box-shadow: 0 0 40px 0 rgb(94 92 154 / 6%);
+
+}
+
+.Contact {
+    color: aliceblue;
+    display: flex;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.MenuBox>ul {
+    color: aliceblue;
+    padding: 0 15px;
+    margin-top: 15px;
+}
+
+
+@keyframes Effect_0 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes Effect_1 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes Effect_2 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes Effect_3 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes Effect_4 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes Effect_5 {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(0.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+#img {
+    margin-top: 200px;
+    width: 35px; 
+    border-radius: 50px;
+}

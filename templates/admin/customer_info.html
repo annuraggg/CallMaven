@@ -1,0 +1,63 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/cust_info.css') }}" />
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    {{navbar()}}
+
+    <div class="main">
+        <div class="box">
+            <h1>{{data['fname']}} {{data['lname']}}</h1>
+
+            <div class="contact">
+                <p>Email: {{data['email']}}</p>
+                <p>Phone: {{data['phone']}}</p>
+            </div>
+
+            <div class="bar">
+                <div class="message">
+                    <h3>{{latest['subject']}}</h3>
+                    <p>{{latest['desc']}}</p>
+                </div>
+
+                <div class="calllogs">
+                    <h3>Call History</h3>
+
+                    <a href="/admin/customer/logs/{{custid}}">Click Here For Call History</a>
+                </div>
+
+                <div class="prev">
+                    <h3>Previous Tickets</h3>
+                    {% for i in tickets %}
+                    <p>{{i}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+</script>

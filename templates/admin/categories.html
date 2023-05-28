@@ -1,0 +1,98 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/customers.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/categories.css') }}"
+    />
+    <title>Customers</title>
+  </head>
+
+  <body>
+    {{navbar()}}
+
+    <div class="main" id="main">
+      <h1>Categories</h1>
+
+      <p class="categories">{% for i in categories %}</p>
+
+      <div class="category" id="category-{{i['id']}}">
+        <p>{{i['name']}}</p>
+        <svg
+          onclick="deleteItem('{{i['id']}}')"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+      {% endfor %}
+
+      <div class="add">
+        <button onclick="showModal()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-plus"
+          >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<div class="add_modal" id="add">
+  <div class="inputs">
+    <input type="text" name="name" id="name" placeholder="Category Name" />
+    <input type="text" name="desc" id="desc" placeholder="Category Description" />
+  </div>
+  <input type="hidden" name="type" value="add" />
+  <button style="border-radius: 0px" onclick="submit()">Submit</button>
+
+  <svg
+    onclick="closeModal()"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="feather feather-x"
+  >
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+</div>
+
+<script src="{{ url_for('static',filename='js/categories.js') }}"></script>

@@ -1,0 +1,42 @@
+{% from 'admin/navbar_macro.html' import navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- * STYLE SHEETS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/adashboard.css') }}"
+    />
+    <link
+      href="{{ url_for('static',filename='libraries/fontawesome/css/fontawesome.css') }}"
+      rel="stylesheet"
+    />
+
+    <title>Dashboard</title>
+  </head>
+
+  <body>
+    {% from 'loader_macro.html' import loader %} {{navbar()}}
+
+    <div class="stats">
+      <div class="one">
+        <h1>Calls in The Past 6 days</h1>
+        <canvas id="chart1"></canvas>
+      </div>
+
+      <div class="two">
+        <h1>Tickets in The Past 6 days</h1>
+        <canvas id="chart2"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static',filename='libraries/jquery/jquery-3.6.4.min.js')}} "></script>
+<script src="{{ url_for('static',filename='js/adashboard_stats.js') }}"></script>

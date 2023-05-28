@@ -1,0 +1,203 @@
+@import url("../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+body {
+  font-family: "Barlow", sans-serif;
+  background-color: #111111;
+  color: aliceblue;
+  overflow: hidden;
+}
+
+.main {
+  padding: 50px;
+  margin-left: 100px;
+}
+
+.info_main h1 {
+  color: #4672fe;
+}
+
+.image {
+  width: 200px;
+  margin-right: 50px;
+  border-radius: 100px;
+}
+
+.linkAbout {
+  margin: 0 5px;
+  color: black;
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  background: #2a2b32;
+  padding: 10px;
+  border-radius: 0 0 15px 15px;
+  font-size: 1em;
+  font-family: "Heebo", sans-serif;
+  right: 31px;
+}
+
+.linkAbout:hover {
+  color: rgb(195, 9, 77);
+}
+
+.more_info {
+  width: 70%;
+  color: aliceblue;
+  margin-top: 30px;
+  padding: 20px 0;
+  background: #2a2b32;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.row1 {
+  justify-content: space-between;
+  width: 200px;
+  display: flex;
+}
+
+.col1,
+.col3 {
+  margin: 0 80px;
+}
+
+.second_main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calls {
+  width: 25%;
+  color: aliceblue;
+  margin-top: 30px;
+  padding: 20px;
+  background: #2a2b32;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calls p,
+h4 {
+  margin: 4px;
+}
+
+.col1 h1,
+.col3 h1,
+.horizontal_info p {
+  color: #4672fe;
+}
+
+.log {
+  margin-bottom: 20px;
+}
+
+.calls h1 {
+  color: #4672fe;
+}
+
+.rating {
+  margin-bottom: 27px;
+  width: 150px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #4672fe;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.merge {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.merge p {
+  margin: 0;
+  font-size: 35px;
+}
+
+.rating img {
+  width: 40px;
+  margin-right: 20px;
+}
+
+table.GeneratedTable {
+  text-align: center;
+  margin: 0 50px;
+  width: 100%;
+  background-color: #111111;
+  color: #fff;
+  height: 20px;
+}
+
+table.GeneratedTable td,
+table.GeneratedTable th {
+  border-width: 2px;
+  border-color: #111111;
+  border-style: solid;
+  padding: 3px;
+}
+
+td {
+  color: #fff;
+}
+
+table.GeneratedTable thead {
+  background-color: #4672fe;
+}
+
+.main {
+  display: flex;
+}
+
+.recent {
+  width: 100%;
+  padding: 0 50px;
+}
+
+.recent h1 {
+  margin-left: 55px;
+}
+
+.right {
+  width: 77%;
+}
+
+.goal {
+  margin-left: 110px;
+}
+
+.goals {
+  display: flex;
+  width: 100%;
+}
+
+.goalie p {
+  font-size: 20px;
+}
+
+.goal h1 {
+  margin-bottom: 35px;
+}
+
+#chart1,
+#chart2 {
+  width: 500px;
+}
+.stats {
+  display: flex;
+  margin-left: 120px;
+}
+
+#stats {
+  margin-top: 50px;
+  margin-left: 120px;
+}
