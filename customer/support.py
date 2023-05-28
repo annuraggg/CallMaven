@@ -38,7 +38,7 @@ We would like to confirm that we have received your request for assistance with 
 Best regards,
 CallMaven Support Team"""
 
-            send_email(email, "Ticket Raised", text)
+            #send_email(email, "Ticket Raised", text)
             return redirect('support?raised=true') if True else redirect('support?error=true')
         else:
             return redirect('support?error=true')
