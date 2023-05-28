@@ -12,4 +12,3 @@ flask/Lib/
 /venv
 .vercel
 /db
-vercel.json
