@@ -18,8 +18,8 @@ def dashboard_agent():
         payload = jwt.decode(
             token, current_app.config['JWT_SECRET'], algorithms=['HS256'])
         user_id = int(payload['id'])
-        jdata = {'fname' :payload['fname'],
-                'lname' : payload['lname']}
+        jdata = {'fname': payload['fname'],
+                 'lname': payload['lname']}
 
         user = Users.find_one({"empid": user_id})
         if not user:
@@ -29,8 +29,11 @@ def dashboard_agent():
         print(today)
         tickets_cursor = Tickets.find({'assigned_to': user_id})
         tic = 0
+
+        date_format = "%d-%m-%Y"
         for x in tickets_cursor:
-            x['created_at'] = x['created_at'].date()
+            x['created_at'] = datetime.datetime.strptime(
+                x['created_at'], date_format).date()
             if (x['created_at'] == today):
                 tic += 1
 
