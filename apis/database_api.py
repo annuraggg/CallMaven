@@ -3,6 +3,7 @@ import pymongo
 from dotenv import load_dotenv
 load_dotenv()
 
+print(os.getenv("MONGO_CLIENT"))
 mongoclient = pymongo.MongoClient(os.getenv("MONGO_HOST"))
 mongoDB = mongoclient[os.getenv("MONGO_CLIENT")]  # type: ignore
 
